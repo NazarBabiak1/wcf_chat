@@ -1,0 +1,58 @@
+﻿<Window x:Class="ChatClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChatClient"
+        mc:Ignorable="d"
+        Title="Chat " Height="430" Width="600" Loaded="Window_Loaded" Closing="Window_Closing" Background="#FF5271FF">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="59*"/>
+            <ColumnDefinition Width="328*"/>
+            <ColumnDefinition Width="193*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Username Input -->
+        <TextBox x:Name="tbUserName" Grid.Column="1" Margin="34,0,149,0" 
+                 Height="28" FontSize="14" Padding="5"
+                 TextWrapping="Wrap" Text="Enter username" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Background="#FF5E17EB" Grid.ColumnSpan="2" TextChanged="tbUserName_TextChanged">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.005"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+
+        <!-- Connect/Disconnect Button -->
+        <Button x:Name="bConnDicon" Grid.Column="2" Width="126" 
+                HorizontalAlignment="Left" Click="Button_Click" 
+                Content="Connect" Margin="57,0,0,0" Background="#FF2209D7"/>
+
+        <!-- Chat Messages -->
+        <ListBox x:Name="lbChat" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" 
+                 Margin="0,10,10,85" BorderBrush="#CCCCCC" 
+                 Padding="5" FontFamily="Rockwell" FontSize="16">
+            <ListBox.Background>
+                <ImageBrush ImageSource="/background.png"/>
+            </ListBox.Background>
+        </ListBox>
+
+        <!-- Message Input -->
+        <TextBox x:Name="tbMessage" Grid.Row="1" Grid.Column="0" 
+                 Margin="0,270,154,16" FontSize="14" Padding="5" TextWrapping="Wrap" 
+                 KeyDown="tbMessage_KeyDown" Grid.ColumnSpan="3" Background="#FF5E17EB"/>
+
+        <!-- Send Button -->
+        <Button x:Name="bSend" Grid.Row="1" Grid.Column="2" Content="Send" FontSize="14" Margin="57,270,10,16" Click="bSend_Click" Background="#FF2209D7"/>
+        <Image HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="109" Source="/Знімок екрана 2024-11-30 202418.png" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>
